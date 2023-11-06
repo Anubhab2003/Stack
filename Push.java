@@ -10,14 +10,28 @@ public class Push{
         s.push(top);
 
     }
+    public static void reverseStack(Stack<Integer> s){
+        if(s.isEmpty()){
+            return;
+        }
+        int top=s.pop();
+        reverseStack(s);
+        pushatBottom(s,top);
+    }
+    public static void printStack(Stack<Integer> s){
+        while(!s.isEmpty()){
+            System.out.println("|"+s.pop()+"|");
+        }
+    }
+
     public static void main(String args[]){
         Stack<Integer> s=new Stack<>();
         s.push(1);
         s.push(2);
         s.push(3);
-        pushatBottom(s,5);
-        while(!s.isEmpty()){
-            System.out.println("|"+s.pop()+"|");
-        }
+        //pushatBottom(s,5);
+        reverseStack(s);
+        printStack(s);
+        
     }
 }
